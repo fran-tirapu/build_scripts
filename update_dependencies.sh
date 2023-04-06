@@ -74,6 +74,5 @@ git checkout -b $BRANCH
 git commit -m 'update dependency versions' .
 git remote set-url origin "$GH_URL"
 git push --set-upstream origin $BRANCH
-gh pr create --title "Update dependencies $(date +%F)" \
-  --body "$DESCRIPTION" --base master --head "${BRANCH}" --assignee $DEVELOPER_LOGIN
+gh pr create --title "Update dependencies $(date +%F)" --body "$DESCRIPTION" --base main --head "${BRANCH}" --assignee $DEVELOPER_LOGIN
 
