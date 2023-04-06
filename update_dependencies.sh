@@ -52,7 +52,7 @@ echo "GH_BASE_BRANCH  = ${GH_BASE_BRANCH}"
 
 
 
-# poetry update --no-interaction --no-ansi > poetry-update.log
+poetry update --no-interaction --no-ansi > poetry-update.log
 
 BRANCH=dependency-update-$(date +%F)
 DESCRIPTION='```
