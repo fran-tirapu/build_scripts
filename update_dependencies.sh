@@ -1,9 +1,15 @@
 #!/bin/bash
 
 # Script to update poetry dependencies and create a PULL REQUEST in github
+
 # Positional args are mandatory:
 #     -u| --github-url        :   github url to your repo
 #     -q|--qa-tasks-array     :   qa tasks to complete description separated by |
+
+# To assign PR, GH_DEV_LOGINS environment var is mandatory
+
+# If you need github.com auth, just include it in url: "https://GH_USER:GH_TOKEN@github.com/<user>/<repo>/<repo.git>
+
 
 POSITIONAL_ARGS=()
 
