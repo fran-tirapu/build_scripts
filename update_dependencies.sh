@@ -76,3 +76,5 @@ git remote set-url origin "$GH_URL"
 git push --set-upstream origin $BRANCH
 gh pr create --title "Update dependencies $(date +%F)" \
   --body "$DESCRIPTION" --base master --head "${BRANCH}" --assignee $DEVELOPER_LOGIN
+
+echo "END!"
