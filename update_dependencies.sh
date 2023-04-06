@@ -7,7 +7,6 @@
 #     -q|--qa-tasks-array     :   qa tasks to complete description separated by |
 #     -b|--base-branch-name   :   repo base branch name
 
-# Base branch (master, main...) s
 # To assign PR, GH_DEV_LOGINS environment var is mandatory
 
 # If you need github.com auth, just include it in url: "https://GH_USER:GH_TOKEN@github.com/<user>/<repo>/<repo.git>
