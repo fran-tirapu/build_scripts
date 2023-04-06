@@ -5,11 +5,15 @@
 # Positional args are mandatory:
 #     -u| --github-url        :   github url to your repo
 #     -q|--qa-tasks-array     :   qa tasks to complete description separated by |
+#     -b|--base-branch-name   :   repo base branch name
 
+# Base branch (master, main...) s
 # To assign PR, GH_DEV_LOGINS environment var is mandatory
 
 # If you need github.com auth, just include it in url: "https://GH_USER:GH_TOKEN@github.com/<user>/<repo>/<repo.git>
 
+
+# Parse position args
 
 POSITIONAL_ARGS=()
 
@@ -17,6 +21,11 @@ while [[ $# -gt 0 ]]; do
   case $1 in
     -u|--github-url)
       GH_URL="$2"
+      shift # past argument
+      shift # past value
+      ;;
+    -b|--base-branch-name )
+      GH_BASE_BRANCH="$2"
       shift # past argument
       shift # past value
       ;;
@@ -38,6 +47,7 @@ IFS='|' read -r -a QA_TASKS_LIST <<< "$QA_TASKS"
 
 echo "GH_URL  = ${GH_URL}"
 echo "QA_TASKS_LIST     = ${QA_TASKS_LIST[@]}"
+echo "GH_BASE_BRANCH  = ${GH_BASE_BRANCH}"
 
 
 
@@ -74,5 +84,5 @@ git checkout -b $BRANCH
 git commit -m 'update dependency versions' .
 git remote set-url origin "$GH_URL"
 git push --set-upstream origin $BRANCH
-gh pr create --title "Update dependencies $(date +%F)" --body "$DESCRIPTION" --base main --head "${BRANCH}" --assignee $DEVELOPER_LOGIN
+gh pr create --title "Update dependencies $(date +%F)" --body "$DESCRIPTION" --base ${GH_BASE_BRANCH} --head "${BRANCH}" --assignee $DEVELOPER_LOGIN
 
