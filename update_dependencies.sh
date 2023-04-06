@@ -12,6 +12,8 @@
 # If you need github.com auth, just include it in url: "https://GH_USER:GH_TOKEN@github.com/<user>/<repo>/<repo.git>
 
 
+set -e
+
 # Parse position args
 
 POSITIONAL_ARGS=()
@@ -50,7 +52,6 @@ echo "GH_BASE_BRANCH  = ${GH_BASE_BRANCH}"
 
 
 
-set -e
 # poetry update --no-interaction --no-ansi > poetry-update.log
 
 BRANCH=dependency-update-$(date +%F)
